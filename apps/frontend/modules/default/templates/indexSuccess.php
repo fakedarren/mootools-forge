@@ -1,8 +1,7 @@
-<div class="block">	
+<div class="row">	
 	<h3 class="blue"><span>Recently added (<?php echo link_to('all', '@browse') ?>) <?php echo link_to(image_tag('/images/feed.gif'), 'recentfeed', array('format' => 'rss201')) ?></span></h3>	
-	
 	<?php if ($hot->count()): ?>	
-	<ul class="projects">
+	<ul class="thumbnails">
 		<?php foreach ($recent as $i => $plugin): ?>
 		<?php include_partial('plugin/bit', array('plugin' => $plugin, 'i' => $i)) ?>
 		<?php endforeach ?>
@@ -12,24 +11,24 @@
 	<?php endif ?>
 </div>
 
-<hr class="clear" />
+<hr />
 
-<div class="block">	
+<div class="row">	
 	<h3 class="blue"><span>Official (<?php echo link_to('all', '@browse') ?>) <?php echo link_to(image_tag('/images/feed.gif'), 'recentfeed', array('format' => 'rss201')) ?></span></h3>	
-	<ul class="projects">
+	<ul class="thumbnails">
 		<?php foreach ($official as $i => $plugin): ?>
 		<?php include_partial('plugin/bit', array('plugin' => $plugin, 'i' => $i)) ?>
 		<?php endforeach ?>
 	</ul>
 </div>
 
-<hr class="clear" />
+<hr />
 
-<div class="block">
+<div class="row">
 	<h3 class="blue"><span>Most downloaded (<?php echo link_to('all', '@browse?sort=downloads_count') ?>)</span></h3>
 	
 	<?php if ($hot->count()): ?>
-	<ul class="projects">
+	<ul class="thumbnails">
 		<?php foreach ($hot as $i => $plugin): ?>
 		<?php include_partial('plugin/bit', array('plugin' => $plugin, 'i' => $i)) ?>
 		<?php endforeach ?>
@@ -39,9 +38,9 @@
 	<?php endif ?>
 </div>
 
-<hr class="clear" />
+<hr />
 
-<div class="block span-8 colborder" id="home-recent-active">
+<div class="row">
 	<h3 class="blue"><span>Recently active</span></h3>
 		
 	<div class="meta">
@@ -66,7 +65,7 @@
 	
 </div>
 
-<div class="block span-8 last">
+<div class="row">
 	<h3 class="blue"><span>Popular tags</span></h3>
 	
 	<?php if ($terms->count()): ?>

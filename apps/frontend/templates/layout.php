@@ -2,81 +2,85 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<meta name="robots" content="all" />
+	<meta name="robots" content="all"/>
 	
-	<!-- Section Specific -->
-	
-	<link rel="alternate" type="application/atom+xml" title="Atom 1.0 &mdash; Plugins" href="<?php echo url_for('recentfeed', array('format' => 'atom1'), array('absolute' => true)) ?>" />
-	
+	<!-- Section Specific -->	
+	<link rel="alternate" type="application/atom+xml" title="Atom 1.0 &mdash; Plugins" href="<?php echo url_for('recentfeed', array('format' => 'atom1'), array('absolute' => true)) ?>" />	
 	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 &mdash; Plugins" href="<?php echo url_for('recentfeed', array('format' => 'rss201'), array('absolute' => true)) ?>" />	
-	
 	<link rel="alternate" type="text/xml" title="RSS .91 &mdash; Plugins" href="<?php echo url_for('recentfeed', array('format' => 'rss091'), array('absolute' => true)) ?>" />	
 	
-	<?php include_http_metas() ?>
-  <?php include_metas() ?>
-  <?php include_title() ?>	
+<?php include_http_metas() ?>
+<?php include_metas() ?>
+<?php include_title() ?>	
 
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-1122274-8']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script');
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    ga.setAttribute('async', 'true');
-    document.documentElement.firstChild.appendChild(ga);
-  })();
-
-</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-1122274-8']);
+		_gaq.push(['_trackPageview']);
+		
+		(function() {
+			var ga = document.createElement('script');
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			ga.setAttribute('async', 'true');
+			document.documentElement.firstChild.appendChild(ga);
+		})();	
+	</script>
 </head>
 <body>
 	
-	<div id="header">	
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
 		<div class="container">
-       <a id="mediatemple" href="http://mediatemple.net">
-               <span>in partnership with mediatemple</span>
-       </a>
-			<div id="logo">
-				<h1><a href="http://mootools.net"><span>PluginsKit</span></a></h1>
-				<h2><span>a plugins repository</span></h2>
+			<a class="brand" href="/">MooTools</a>
+			<div class="nav-collapse">
+				<ul class="nav">
+					<li><a href="/">Home</a></li>
+					<li class="divider-vertical"></li>
+					<li><a href="/docs/">Documentation</a></li>
+					<li><a href="/learn/">Learn More</a></li>
+					<li class="divider-vertical"></li>
+					<li><a href="/download/">Download</a></li>
+				</ul>
 			</div>
-<div id="navigation">
-			<a href="/" class="first">Home</a>
-			<a href="/download">Download</a>
-			<a href="/docs">Docs</a>
-                        <a href="/forge/">Forge</a>
-			<a href="/blog">Blog</a>
-			<a href="/demos">Demos</a>
+			<form class="navbar-search pull-right" action="search/">
+				<input type="text" class="search-query span2" placeholder="Search">
+			</form>
+			<ul class="nav pull-right">
+				<li class="active"><a href="/plugins/">Plugins</a></li>
+				<li class="divider-vertical"></li>
+				<li><a href="/blog/">Blog</a></li>
+				<li class="divider-vertical"></li>
+				<li><a href="/community/">Community</a></li>
+				<li class="divider-vertical"></li>
+			</ul>
 		</div>
-		</div>	
-	</div>	
-
-	<div id="wrapper">
-		<div id="container" class="container forge">
-			<div id="main" class="span-18 colborder">
-				<?php if ($sf_user->hasFlash('notice')): ?>
-			  <div class="notice"><?php echo $sf_user->getFlash('notice') ?></div>
-				<?php endif; ?>
-				
-				<?php echo $sf_content ?>		
-			</div>
-			
-			<!-- Sidebar -->
-			<div id="sidebar" class="span-5 last">
-				<?php include_component('default', 'sidebar') ?>
-			</div>
-			
-		</div>	
 	</div>
+</div>
 
-	<div id="footer">
 <div class="container">
-		<p class="copy"><a href="http://mad4milk.net" id="mucca"></a></p>
-		<p>copyright ©2006-2009 <a href="http://mad4milk.net">Valerio Proietti</a></p>
-	</div>
-	</div>
+	<div class="row">
+		<div class="span9">
+			<?php if ($sf_user->hasFlash('notice')): ?>
+				<div class="notice"><?php echo $sf_user->getFlash('notice') ?></div>
+			<?php endif; ?>
+			<?php echo $sf_content ?>		
+		</div>
+		<div class="span3">
+			<?php include_component('default', 'sidebar') ?>
+		</div>
+	</div>	
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<footer>
+		<p>
+			<a href="/community/developers">MooTools Development Team</a>
+			<span class="footerCopy">© 2006 — 2012 <a href="http://mad4milk.net" rel="nofollow">Valerio Proietti</a></span>
+		</p>
+	</footer>
+</div>
 
 </body>
 </html>
