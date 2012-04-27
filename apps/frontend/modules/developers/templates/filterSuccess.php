@@ -4,14 +4,17 @@
 	
 	<form action="<?php echo url_for('@developers') ?>" method="get" accept-charset="utf-8">
 		<?php echo $form['search']->renderLabel('Name') ?>
-		<?php echo $form['search']->render() ?>	
-		<?php echo $form['with_plugins']->renderLabel('With plugins') ?>
-		<?php echo $form['with_plugins']->render() ?></li>	
+		<?php echo $form['search']->render() ?>
+		<label class="checkbox">With plugins
+			<?php echo $form['with_plugins']->render() ?>
+		</label>
 		<input type="submit" value="Filter" id="submit_filter" />
 		<?php if ($params->count()): ?>
 		<?php echo link_to('Clear', '@developers') ?>
 		<?php endif ?>
+		<div class="alert alert-error">
 		<?php echo $form['search']->renderError() ?>
+		</div>
 	</form>
 	
 	<?php if ($pager->getResults()->count()): ?>

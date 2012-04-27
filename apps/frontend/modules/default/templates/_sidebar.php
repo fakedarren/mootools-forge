@@ -1,10 +1,6 @@
-<form action="/forge/browse" id="search-form" class="block">
-	<div id="search_field">
-		<input type="text" placeholder="Search" name="search" id="q" />
-	</div>
-	<div id="search_submit" class="input_submit">
-		<input type="submit" value="Go" />
-	</div>
+<form action="<?php echo url_for('@search') ?>" id="search-form" class="well form-search">
+	<input type="text" placeholder="Search" name="search" id="q" class="input-small search-query" />
+	<button type="submit" class="btn">Go</button>
 </form>
 
 <?php if($sf_user->isAuthenticated()): ?>

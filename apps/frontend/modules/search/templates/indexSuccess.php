@@ -4,21 +4,20 @@
 	<h3 class="red"><span>Search</span></h3>
 	
 	<hr class="clear" />
-	<form action="<?php echo url_for('@search') ?>" method="get" accept-charset="utf-8" class="horizontal-form">
-		<ul>
-			<li class="input_text"><?php echo $form['q']->renderLabel('Search') ?> <?php echo $form['q']->render() ?></li>				
-			<li class="input_submit"><input type="submit" value="Go" id="submit_search" /></li>
-		</ul>
+	<form action="<?php echo url_for('@search') ?>" method="get" accept-charset="utf-8" class="well form-search">
+		<input type="text" placeholder="Search" name="search" id="q" class="input-small search-query" />
+		<button type="submit" class="btn">Go</button>
 
 		<?php if ($form->hasGlobalErrors()): ?>
-	  <ul class="form-global-errors error_list">
+		<ul class="alert alert-error">
 	    <?php foreach ($form->getGlobalErrors() as $name => $error): ?>
 	    <li><?php echo $error ?></li>
 	    <?php endforeach; ?>
-	  </ul>
-	  <?php endif; ?>
-		
-		<?php echo $form['q']->renderError() ?>		
+		</ul>
+		<?php endif; ?>
+		<div class="alert alert-error">		
+		<?php echo $form['q']->renderError() ?>
+		</div>	
 	</form>
 	<hr class="clear" />
 		
