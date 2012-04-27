@@ -37,8 +37,16 @@
 	?>
 	<div class="pagination">
 		<ul>
- 			<li><?php echo link_to_unless($noprev, 'Previous', 'developers', array_merge(array_filter($form->getValues()), array('page' => $pager->getPreviousPage()))); ?></li>
-			<li><?php echo link_to_unless($nonext, 'Next', 'developers', array_merge(array_filter($form->getValues()), array('page' => $pager->getNextPage()))); ?></li>
+			<?php if ($noprev): ?>				
+			<li class="disabled"><a href="#">Previous</a></li>
+			<?php else: ?>
+			<li><?php echo link_to('Previous', 'developers', array_merge(array_filter($form->getValues()), array('page' => $pager->getPreviousPage()))); ?></li>	
+			<?php endif ?>
+ 			<?php if ($nonext): ?>				
+			<li class="disabled"><a href="#">Next</a></li>
+			<?php else: ?>
+			<li><?php echo link_to('Next', 'developers', array_merge(array_filter($form->getValues()), array('page' => $pager->getNextPage()))); ?></li>	
+			<?php endif ?>			
 		</ul>
 	</div>
 	<?php endif ?>
