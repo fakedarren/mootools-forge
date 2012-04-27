@@ -2,3 +2,4 @@ cache/
 .DS_Store
 git/
 web/uploads/
+log/
