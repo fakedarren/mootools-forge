@@ -276,6 +276,11 @@ class pluginActions extends ForgeActions
 		$this->sections = $this->plugin->getPluginSections();
 		$this->dependencies = $this->plugin->getPluginDependencys();
 	}
+	
+	public function executeRename(sfWebRequest $request)
+	{
+		$this->plugin = PluginPeer::retrieveBySlug($request->getParameter('slug'));
+	}
 
   /**
    * Delete a plugin

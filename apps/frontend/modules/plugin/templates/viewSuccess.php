@@ -74,15 +74,19 @@
 				<dt>Report</dt>
 				<dd><a href="http://github.com/<?php echo $github; ?>/issues">GitHub Issues</a></dd>
 
-				<?php if ($sf_user->hasCredential('admin')): ?>
-				<dt>Admin</dt>
-				<dd><?php echo link_to('Delete', 'plugindelete', array('slug' => $plugin->getSlug()), array('id' => 'plugin-delete')) ?></dd>
-				<?php endif ?>
 			</dl>
 		</div>
 
 		<div class="span4">
 			<div class="row">
+				<?php if (($sf_user->isAuthenticated() && $sf_user->ownsPlugin($plugin)) || $sf_user->hasCredential('admin')): ?>
+				<h3>Admin</h3>
+				<ul>
+					<li><?php echo link_to('Rename', 'pluginrename', array('slug' => $plugin->getSlug()), array('id' => 'plugin-rename')) ?></li>
+					<li><?php echo link_to('Delete', 'plugindelete', array('slug' => $plugin->getSlug()), array('id' => 'plugin-delete')) ?></li>
+				</ul>
+				<?php endif ?>
+				
 				<h3>Releases</h3>
 				<ul>
 					<?php foreach($tags as $tag): ?>
